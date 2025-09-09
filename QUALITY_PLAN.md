@@ -97,5 +97,3 @@ La documentación es un elemento de configuración gestionado formalmente.
 - **Los cambios en la documentación siguen el mismo proceso de PR y revisión** que el código. Una funcionalidad no se considera terminada hasta que su documentación correspondiente esté completa y aprobada (**GDSW**).
 - **La documentación se revisa y actualiza** en cada release mayor para reflejar con precisión el estado actual del software.
 
----
-*Este plan de calidad es un documento vivo y será revisado al final de cada sprint (**GPROJ - Monitorear y controlar el proyecto**), para adaptarlo a las lecciones aprendidas y los cambios en el proyecto.*
