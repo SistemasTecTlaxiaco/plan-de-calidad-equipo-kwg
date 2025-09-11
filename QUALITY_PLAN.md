@@ -1,99 +1,121 @@
 # Plan de Calidad - StellarTracker dApp
 
-## 1. Introducción
+## 🎯 Propósito
 
-Este documento define el Plan de Calidad para el proyecto **StellarTracker**, una aplicación descentralizada (dApp) desarrollada para la **Stellar Community Fund (SCF)**. El plan se alinea formalmente con el **Modelo de Procesos para la Industria del Software (MoProSoft)** del nivel 2 (Gestionado), así como con las áreas de proceso de **CMMI-DEV v2.0** nivel 2.
+Este documento establece formalmente el **Plan de Calidad del Producto de Software** para el proyecto **StellarTracker**, una dApp desarrollada para la Stellar Community Fund (SCF). Su propósito es definir los procesos para asegurar que el producto final sea confiable, seguro y cumpla con los objetivos establecidos, alineándose con el modelo **MoProSoft**.
 
-El propósito de este plan es institucionalizar los procesos de gestión de la calidad del producto de software, asegurando que la dApp entregada sea funcional, segura, confiable y cumpla con los objetivos establecidos por la SCF y las expectativas de la comunidad Stellar.
+## 📋 Alineación con MoProSoft
 
-## 2. Alineación con MoProSoft y CMMI
+Este plan implementa procesos del nivel 2 (Gestionado) de **MoProSoft**:
 
-Este plan de calidad implementa y opera los procesos de MoProSoft de la siguiente manera:
+| Proceso MoProSoft | Acrónimo | Actividades Clave en Este Plan |
+| :--- | :--- | :--- |
+| **Gestión de Proyectos** | GPROJ | Planificación, seguimiento y control mediante métricas. |
+| **Desarrollo y Mantenimiento de Software** | GDSW | Análisis, diseño, construcción, pruebas y documentación. |
+| **Gestión de la Calidad del Producto** | GCAL | Definición de métricas, revisiones y auditorías. |
+| **Gestión de la Configuración** | GCON | Control de versiones, manejo de cambios y liberaciones. |
 
-*   **Gestión de Proyectos (MoProSoft - GPROJ):** Este plan es un subproducto clave de la gestión del proyecto. Establece los objetivos de calidad, las métricas (**GPROJ** - Establecer y mantener el plan del proyecto) y las actividades de seguimiento.
-*   **Desarrollo y Mantenimiento de Software (MoProSoft - GDSW):** Las políticas de pruebas, revisiones y documentación detalladas en las secciones 3, 4 y 6 operacionalizan este proceso. Se enfocan en transformar requisitos en un producto software (**GDSW** - Desarrollar los procedimientos de diseño, construcción y pruebas).
-*   **Gestión de la Calidad del Producto de Software (MoProSoft - GCAL):** Esta es la columna vertebral del presente plan. Las **Métricas de Calidad (Sección 2)** y los **Procedimientos de Revisión (Sección 3)** son la materialización de este proceso, asegurando que el producto cumpla con los requisitos de calidad establecidos (**GCAL** - Establecer y mantener los procedimientos para asegurar la calidad del producto).
-*   **Gestión de la Configuración (MoProSoft - GCON):** La **Sección 5** de este plan define explícitamente las prácticas para controlar los elementos de configuración (código, documentación) y gestionar las liberaciones (**GCON** - Establecer y mantener la integridad de los elementos de configuración).
+---
 
-## 3. Métricas de Calidad
+## 1. Gestión de Proyectos (GPROJ)
 
-Las siguientes métricas, alineadas con el proceso **GCAL de MoProSoft**, serán monitoreadas continuamente para evaluar objetivamente la calidad.
+### 1.1. Planificación
+- Este plan de calidad es un componente integral del plan general del proyecto.
+- Se establecen y mantienen los objetivos de calidad, métricas y actividades de aseguramiento.
 
-### 3.1. Métricas de Proceso y Código
-| Métrica | Descripción | Objetivo | Herramienta |
+### 1.2. Seguimiento y Control
+- El avance se medirá contra las métricas definidas en la sección 3.
+- Las desviaciones activarán acciones correctivas según el proceso **GPROJ - Realizar el seguimiento del plan del proyecto**.
+
+---
+
+## 2. Métricas de Calidad (GCAL)
+
+Las siguientes métricas se monitorizarán para evaluar objetivamente la calidad del producto y del proceso.
+
+| Categoría | Métrica | Objetivo | Herramienta de Medición |
 | :--- | :--- | :--- | :--- |
-| **Cobertura de Pruebas Unitarias** | Porcentaje del código cubierto por pruebas automáticas. | > 85% | Jest, Coverage Reports |
-| **Errores Críticos Post-Release** | Número de bugs que impiden el uso core de la app, reportados en producción por versión. | 0 | GitHub Issues |
-| **Vulnerabilidades de Seguridad** | Número de vulnerabilidades críticas/altas identificadas en análisis estático. | 0 | SonarQube, OWASP ZAP |
-| **Tiempo de Resolución de Bugs** | Tiempo promedio (en horas) entre la reportación de un bug crítico/mayor y su resolución. | < 24 h | GitHub Projects |
+| **Calidad de Producto** | Tasa de Éxito de Transacciones | > 99.5% | Stellar Horizon API |
+| | Errores Críticos Post-Liberación | 0 | GitHub Issues |
+| **Calidad de Proceso** | Cobertura de Pruebas Unitarias | > 80% | Jest / Coverage Reports |
+| | Cumplimiento de Revisiones de Código | 100% de PR revisados | GitHub Insights |
+| | Tiempo de Resolución de Bugs (Críticos) | < 24 h | GitHub Projects |
 
-### 3.2. Métricas de Producto y Rendimiento
-| Métrica | Descripción | Objetivo | Herramienta |
-| :--- | :--- | :--- | :--- |
-| **Tasa de Éxito de Transacciones** | Porcentaje de transacciones (pagos, donaciones) que se completan con éxito en la red Stellar. | > 99.5% | Stellar Horizon API, Logs |
-| **Tiempo de Carga de la Aplicación (LCP)** | Tiempo que tarda el contenido principal en cargarse y ser interactivo. | < 2.5 s | Lighthouse, Web Vitals |
-| **Puntuación de Satisfacción del Usuario (CSAT)** | Puntuación promedio obtenida en encuestas de retroalimentación tras la liberación beta. | > 4.2 / 5 | Google Forms, Typeform |
+---
 
-## 4. Procedimientos de Revisión
+## 3. Actividades de Aseguramiento de la Calidad (GCAL)
 
-### 4.1. Revisión de Requisitos y Diseño
-- **Revisión de Requisitos (GDSW - Analizar los requisitos del software):** Todas las historias de usuario (*user stories*) y casos de uso serán revisados en una sesión de planificación (Sprint Planning) con todo el equipo de desarrollo. De ser posible, se invitará a un mentor de la SCF para validar la alineación con los objetivos de la comunidad. Los requisitos se considerarán "aprobados" solo cuando sean **claros, factibles y testeables**.
-- **Revisión de Diseño de Arquitectura y Contratos (GDSW - Diseñar el software):** El diseño de la arquitectura (frontend, backend) y la lógica de los **Stellar Smart Contracts (Soroban)** será documentado y revisado por un segundo desarrollador senior. El foco estará en identificar riesgos de **seguridad, escalabilidad, costos de transacción e integración** con la red Stellar Testnet/Mainnet.
-
-### 4.2. Revisión de Código (Code Review) - **(GCAL - Realizar las actividades de aseguramiento de la calidad)**
-- **Política de Pull Requests (PR):** Todo nuevo código debe ser enviado mediante un PR en GitHub. No se permite el merge directo a las ramas principales (`main`, `develop`).
+### 3.1. Revisiones de Pares (Peer Review)
+- **Política de Pull Requests (PR):** Todo nuevo código debe ser enviado mediante un PR.
 - **Proceso:** Al menos **un desarrollador** que no sea el autor debe revisar y aprobar el PR. Para cambios críticos (ej: lógica de contratos inteligentes, manejo de claves), se requerirán **dos aprobaciones**.
-- **Checklist de Revisión:** La revisión debe verificar:
+- **Checklist de Revisión Obligatoria:**
     - ✅ Funcionalidad correcta y alineada con la historia de usuario.
-    - ✅ Ausencia de vulnerabilidades de seguridad conocidas (ej: inyección, manejo incorrecto de seeds).
-    - ✅ Cumplimiento de las convenciones de código y estilo definidas (ESLint, Prettier).
+    - ✅ Ausencia de vulnerabilidades de seguridad conocidas.
+    - ✅ Cumplimiento de las convenciones de código (ESLint, Prettier).
     - ✅ Cobertura adecuada de pruebas (unitarias e integración).
     - ✅ Legibilidad y mantenibilidad del código.
     - ✅ Documentación clara de funciones complejas.
 
-## 5. Políticas de Pruebas - **(GDSW - Construir y probar el software)**
+### 3.2. Auditorías de Proceso
+- Muestreos periódicos para verificar el cumplimiento de los procesos **GDSW** y **GCON**.
+- Realizadas por el Líder de Calidad.
 
-Nuestra estrategia de pruebas sigue el modelo de la **Pirámide de Testing** para maximizar la eficiencia y la cobertura.
+---
 
-- **Pruebas Unitarias (Jest, Mocha):** Cubrirán todas las funciones y componentes lógicos individuales de manera aislada (ej: cálculo de comisiones, formateo de direcciones Stellar, validadores de entrada). **Automáticas y obligatorias para cada PR.**.
-- **Pruebas de Integración (Cypress, Stellar Testnet):** Verificarán la interacción entre los componentes de la dApp y, crucialmente, con la **red Stellar (Testnet)**. Se probarán flujos completos de extremo a extremo (E2E) como "crear una campaña de donación", "realizar una donación" y "consultar el historial".
-- **Pruebas de Seguridad (GCAL):** Se realizará un escaneo automático semanal de vulnerabilidades web (OWASP Top 10) usando **OWASP ZAP**. Adicionalmente, la lógica de los contratos inteligentes será auditada manualmente en busca de vectores de ataque que puedan leadear a pérdida de fondos.
-- **Pruebas de Usabilidad (Beta Testing):** Una versión beta estable será liberada a un grupo selecto de usuarios de la comunidad Stellar. Su feedback cualitativo se recopilará mediante entrevistas y formularios para refinar la experiencia de usuario (UI/UX) antes del lanzamiento mainnet.
+## 4. Estrategia de Pruebas (GDSW)
 
-## 6. Gestión de la Configuración - **(GCON - Gestionar la Configuración)**
+Nuestra estrategia sigue el modelo de la **Pirámide de Testing**.
 
-### 6.1. Control de Versiones
-- **Repositorio:** Todo el código y la documentación se alojan en **GitHub**. El repositorio será público, alineándose con los principios de open source de la SCF.
+| Nivel | Tipo de Prueba | Objetivo | Herramienta |
+| :--- | :--- | :--- | :--- |
+| **1** | Unitarias | Cubrir funciones y componentes lógicos de manera aislada. >80% cobertura. | Jest, Mocha |
+| **2** | Integración | Verificar interacción entre componentes y con la red Stellar (Testnet). | Cypress |
+| **3** | Seguridad | Escaneo de vulnerabilidades (OWASP Top 10) y auditoría de contratos. | OWASP ZAP |
+| **4** | Usabilidad | Feedback cualitativo con usuarios de la comunidad Stellar (Beta Testing). | Typeform |
+
+---
+
+## 5. Gestión de la Configuración (GCON)
+
+### 5.1. Control de Versiones
+- **Repositorio:** [URL del Repositorio GitHub]
 - **Estrategia de Ramas (Git Flow):**
-    - `main`: Representa la versión de producción estable. **Solo recibe merges desde `develop` mediante PR aprobado.**
-    - `develop`: Rama de integración para funcionalidades completadas y estables.
-    - `feature/*`: Ramas efímeras para desarrollar nuevas funcionalidades. Se fusionan en `develop`.
-    - `hotfix/*`: Ramas para corregir urgentemente bugs en producción. Se fusionan en `main` y `develop`.
+    - `main`: Versión de producción estable. **Solo recibe merges desde `develop`.**
+    - `develop`: Rama de integración para funcionalidades completadas.
+    - `feature/*`: Ramas para nuevas funcionalidades.
+    - `hotfix/*`: Ramas para corregir bugs críticos en producción.
 
-### 6.2. Gestión de Liberaciones
-- **Versionado Semántico (SemVer):** Se seguirá estrictamente el formato `vX.Y.Z` (Major.Minor.Patch).
-- **Despliegue Automatizado (CI/CD):** Cada merge a `develop` activará un despliegue automático en un entorno de **Staging (Testnet)**. Cada tag de versión (ej: `v1.2.0`) en `main` activará un despliegue en **Producción (Mainnet)**, el cual requerirá una **aprobación manual final** para confirmar.
-- **Comunicación:** Los lanzamientos se anunciarán en el **foro de la SCF** y en las redes sociales del proyecto. Las **Release Notes** en GitHub detallarán los cambios, nuevas funcionalidades y instrucciones de actualización.
+### 5.2. Gestión de Liberaciones
+- **Versionado Semántico (SemVer):** Se seguirá estrictamente el formato `vX.Y.Z`.
+- **CI/CD:** 
+    - Merge a `develop` → Despliegue automático en **Staging (Testnet)**.
+    - Tag en `main` → Despliegue en **Producción (Mainnet)** (con aprobación manual).
+- **Comunicación:** Los lanzamientos se anunciarán en el foro de la SCF. Las **Release Notes** en GitHub detallarán los cambios.
 
-## 7. Documentación - **(GDSW - Gestionar los requerimientos y GESTIÓN DE LA CONFIGURACIÓN - GCON)**
+---
 
-La documentación es un elemento de configuración gestionado formalmente.
+## 6. Gestión de la Documentación (GDSW / GCON)
 
-### 7.1. Tipos de Documentación
-- **Documentación Técnica Interna:**
-    - **README Principal:** Guía de inicio rápido para configurar el entorno de desarrollo, instalar dependencias y ejecutar el proyecto.
-    - **Architecture Decision Record (ADR):** Documento que registra las decisiones arquitectónicas importantes, el contexto y las consecuencias.
-    - **Documentación de API:** Especificación de los endpoints REST o GraphQL (usando OpenAPI/Swagger).
-    - **Guías de Estilo de Código:** Conventions para JavaScript/Soroban, asegurando consistencia en el código.
+La documentación es un elemento de configuración versionado y gestionado.
 
-- **Documentación para el Usuario Final:**
-    - **Guía de Usuario:** Documentación clara y con capturas de pantalla que explique cómo usar la dApp: crear una campaña, donar, revisar transacciones.
-    - **FAQs (Preguntas Frecuentes):** Respuestas a las dudas comunes sobre el uso de la plataforma, comisiones, y troubleshooting.
-    - **Política de Privacidad y Términos de Uso:** Documentos legales que establezcan las reglas de engagement con la aplicación.
+- **Almacenamiento:** Toda la documentación se encuentra en la carpeta `/docs` del repositorio.
+- **Formato:** Todo se escribe en **Markdown** (.md).
+- **Proceso:** Los cambios en la documentación siguen el mismo proceso de **PR y revisión** que el código.
+- **Tipos de Documentación:**
+    - **Técnica:** `README.md`, `ARCHITECTURE.md`, `API.md`.
+    - **Usuario Final:** `USER_GUIDE.md`, `FAQs.md`.
 
-### 7.2. Estándares y Proceso
-- **La documentación se escribe en Markdown** (.md) para garantizar portabilidad y facilidad de lectura en GitHub.
-- **La documentación se almacena en el mismo repositorio** que el código, en una carpeta `/docs`, para mantenerla versionada y sincronizada con cada release (**GCON**).
-- **Los cambios en la documentación siguen el mismo proceso de PR y revisión** que el código. Una funcionalidad no se considera terminada hasta que su documentación correspondiente esté completa y aprobada (**GDSW**).
-- **La documentación se revisa y actualiza** en cada release mayor para reflejar con precisión el estado actual del software.
+---
+
+## ✅ Checklist de Implementación
+
+- [ ] El equipo conoce y comprende este plan de calidad.
+- [ ] Las herramientas de medición (Jest, Cypress, OWASP ZAP) están configuradas.
+- [ ] Los hooks de pre-commit para linter y pruebas están activos.
+- [ ] El pipeline de CI/CD para despliegues en Testnet está configurado.
+- [ ] Se ha designado un responsable de liderar las auditorías de proceso (GCAL).
+
+---
+
+
 
