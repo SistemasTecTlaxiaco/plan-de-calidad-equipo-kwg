@@ -49,7 +49,6 @@ Las siguientes métricas se monitorizarán para evaluar objetivamente la calidad
 - **Política de Pull Requests (PR):** Todo nuevo código debe ser enviado mediante un PR.
 - **Proceso:** Al menos **un desarrollador** que no sea el autor debe revisar y aprobar el PR. Para cambios críticos (ej: lógica de contratos inteligentes, manejo de claves), se requerirán **dos aprobaciones**.
 - **Checklist de Revisión Obligatoria:**
-    - ✅ Funcionalidad correcta y alineada con la historia de usuario.
     - ✅ Ausencia de vulnerabilidades de seguridad conocidas.
     - ✅ Cumplimiento de las convenciones de código (ESLint, Prettier).
     - ✅ Cobertura adecuada de pruebas (unitarias e integración).
